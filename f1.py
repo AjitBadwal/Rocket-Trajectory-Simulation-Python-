@@ -163,8 +163,6 @@ mass = rocket_mass
 fuel = fuel_mass
 
 
-# You can integrate this code into your simulation by updating the position at each step.
-
 def escape_velocity(position):
     """Calculate escape velocity from a given position (m)."""
     r = np.linalg.norm(position)  # Use full 3D distance
@@ -375,7 +373,7 @@ def drag_force1(velocity, altitude, rocket_cross_sectional_area, drag_coefficien
     velocity = np.array(velocity)
     density = air_density(altitude, temp, pressure)
     # Calculate air density (use `density` directly or compute it based on altitude)
-    rho = density  # Replace this with your actual calculation if needed
+    rho = density  
 
     # Calculate velocity magnitude
     velocity_magnitude = np.linalg.norm(velocity)
@@ -913,7 +911,6 @@ for step in range(int(total_simulation_time / time_interval)):
     time = step * time_interval  # Calculate the current time
     times = np.append(times, time)  # Append current time to the array
 
-    # Simulate altitude change (replace this logic with your physics calculations)
     position = update_position1(position, velocity, time_interval)
     _, rocket_velocity, _, _, _ = runge_kutta_4(rocket_position, rocket_velocity, rocket_mass, fuel_mass, temp,
                                                 pressure, dt, mach_number, rocket_velocity)
@@ -940,7 +937,6 @@ else:
     if np.min(times) < 0:
         times = np.abs(times)  # Ensure positive values
 
-# Example scaling, adjust as per your data
 if np.max(times) > 1e6:  # If time is in microseconds
     times = times / 1e6  # Convert to seconds
 
