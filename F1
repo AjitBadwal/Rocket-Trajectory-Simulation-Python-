@@ -84,7 +84,7 @@ state_name = 'florida'
 # Weather data fetch function (fetches weather data based on city and state)
 def fetch_weather_data(city_name, state_name):
 
-    api_key = "4f0142b007a72b3a3020c9ceb060bcf8"
+    api_key = ""
     base_url = "http://api.openweathermap.org/data/2.5/weather?"
     complete_url = base_url + "appid=" + api_key + "&q=" + city_name + "," + state_name + ",us"
 
